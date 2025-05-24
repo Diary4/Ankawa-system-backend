@@ -17,7 +17,7 @@ class MarriageContract extends Model
         'marray_pashaki',
         'peshaki_wargirawa',
         'pashaki_wargirawa',
-        //'user_id' // if you're associating it with a user
+        'user_id'
     ];
 
     public function groom(){

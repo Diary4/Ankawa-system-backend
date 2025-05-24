@@ -54,7 +54,7 @@ class MarriageContractController extends Controller
         ]);
 
         $contract = MarriageContract::create([
-            //'user_id' => optional(\Illuminate\Support\Facades\Auth::user())->id ?? 1, // temporary: replace 1 with real user if no auth
+            'user_id' => 1,
             'type' => $validated['type'],
             'judge_name' => $validated['judge_name'],
             'phone' => $validated['phone'],
