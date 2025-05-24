@@ -8,6 +8,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/csrf-token', function () {
+    return response()->json(['csrf_token' => csrf_token()]);
+});
 
-Route::get('/api/marriage-contracts', [MarriageContractController::class, 'index']);
-Route::post('/api/marriage-contracts', [MarriageContractController::class, 'store']);
+    Route::post('/api/marriage-contracts', [MarriageContractController::class, 'store']);
+    Route::get('/api/marriage-contracts', [MarriageContractController::class, 'index']);
+    Route::get('/api/marriage-contracts/{id}', [MarriageContractController::class, 'show']);
