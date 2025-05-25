@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\MarriageContract;
-use App\Models\Groom;
-use App\Models\Bride;
-use App\Models\User;
 
 class MarriageContractController extends Controller
 {
@@ -59,12 +56,12 @@ class MarriageContractController extends Controller
             'judge_name' => $validated['judge_name'],
             'phone' => $validated['phone'],
             'marriage_date' => $validated['marriage_date'],
-            'witness1_name' => $request->input('witness1_name', 'Default Witness 1'), // Optional, can be provided in request
-            'witness2_name' => $request->input('witness2_name', 'Default Witness 2'), // Optional, can be provided in request
+            'witness1_name' => $request->input('witness1_name', 'Default Witness 1'), 
+            'witness2_name' => $request->input('witness2_name', 'Default Witness 2'), 
             'marray_peshaki' => $request->input('marray_peshaki', 'Default 10msqal'),
             'marray_pashaki' => $request->input('marray_pashaki', 'Default 20msqal'),
-            'peshaki_wargirawa' => $request->input('peshaki_wargirawa', false), // Optional, default to false
-            'pashaki_wargirawa' => $request->input('pashaki_wargirawa', true), // Optional, default to false
+            'peshaki_wargirawa' => $request->input('peshaki_wargirawa', false),
+            'pashaki_wargirawa' => $request->input('pashaki_wargirawa', true),
         ]);
 
         $contract->groom()->create($validated['groom']);
