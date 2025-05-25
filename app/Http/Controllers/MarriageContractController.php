@@ -34,6 +34,8 @@ class MarriageContractController extends Controller
             'marray_pashaki' => 'nullable|string',
             'peshaki_wargirawa' => 'nullable|boolean',
             'pashaki_wargirawa' => 'nullable|boolean',
+            'kanisa' => 'nullable|string',
+            'tayfa' => 'nullable|string',
             'groom.name' => 'required|string',
             'groom.dob' => 'required|date',
             'groom.nationality' => 'required|string',
