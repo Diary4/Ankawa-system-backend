@@ -16,7 +16,7 @@ class Bride extends Model
         'dob',
         'nationality',
         'marital_status',
-         'marriage_contract_id', // foreign key
+        'marriage_contract_id', // foreign key
     ];
     public function marriageContract()
     {

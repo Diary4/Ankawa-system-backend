@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('marray_pashaki');
             $table->boolean('peshaki_wargirawa');
             $table->boolean('pashaki_wargirawa');
+            $table->string('tayfa')->nullable(); 
+            $table->string('kanisa')->nullable();
             $table->timestamps();
         });
     }

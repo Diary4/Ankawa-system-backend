@@ -17,6 +17,8 @@ class MarriageContract extends Model
         'marray_pashaki',
         'peshaki_wargirawa',
         'pashaki_wargirawa',
+        'tayfa',
+        'kanisa',
         'user_id'
     ];
 
