@@ -64,6 +64,8 @@ class MarriageContractController extends Controller
             'marray_pashaki' => $request->input('marray_pashaki', 'Default 20msqal'),
             'peshaki_wargirawa' => $request->input('peshaki_wargirawa', false),
             'pashaki_wargirawa' => $request->input('pashaki_wargirawa', true),
+            'kanisa' => $request->input('kanisa', 'Default Kanisa'),
+            'tayfa' => $request->input('tayfa', 'Default Tayfa'),
         ]);
 
         $contract->groom()->create($validated['groom']);
