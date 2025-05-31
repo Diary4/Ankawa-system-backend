@@ -26,7 +26,7 @@ class MarriageContractController extends Controller
          $validated = $request->validate([
             'type' => 'required|in:muslim,christian,daraki',
             'judge_name' => 'required|string',
-            'phone' => 'required|string',
+            'phone' => 'nullable|string',
             'marriage_date' => 'required|date',
             'witness1_name' => 'nullable|string',
             'witness2_name' => 'nullable|string',
@@ -36,27 +36,28 @@ class MarriageContractController extends Controller
             'pashaki_wargirawa' => 'nullable|boolean',
             'kanisa' => 'nullable|string',
             'tayfa' => 'nullable|string',
+            'number_of_childs' => 'nullable|integer',  
             'groom.name' => 'required|string',
             'groom.dob' => 'required|date',
             'groom.nationality' => 'required|string',
-            'groom.occupation' => 'required|string',
-            'groom.address' => 'required|string',
+            'groom.occupation' => 'nullable|string',
+            'groom.address' => 'nullable|string',
             'groom.religion' => 'required|string',
-            'groom.marital_status' => 'required|string',
+            'groom.marital_status' => 'nullable|string',
             'bride.name' => 'required|string',
             'bride.dob' => 'required|date',
             'bride.nationality' => 'required|string',
-            'bride.occupation' => 'required|string',
-            'bride.address' => 'required|string',
+            'bride.occupation' => 'nullable|string',
+            'bride.address' => 'nullable|string',
             'bride.religion' => 'required|string',
-            'bride.marital_status' => 'required|string',
+            'bride.marital_status' => 'nullable|string',
         ]);
 
         $contract = MarriageContract::create([
             'user_id' => 1,
             'type' => $validated['type'],
             'judge_name' => $validated['judge_name'],
-            'phone' => $validated['phone'],
+            'phone' => $validated['phone'] -> $request->input('phone', 'Default Phone Number'), // Default phone number if not provided
             'marriage_date' => $validated['marriage_date'],
             'witness1_name' => $request->input('witness1_name', 'Default Witness 1'), 
             'witness2_name' => $request->input('witness2_name', 'Default Witness 2'), 
@@ -66,6 +67,7 @@ class MarriageContractController extends Controller
             'pashaki_wargirawa' => $request->input('pashaki_wargirawa', true),
             'kanisa' => $request->input('kanisa', 'Default Kanisa'),
             'tayfa' => $request->input('tayfa', 'Default Tayfa'),
+            'number_of_childs' => $request->input('number_of_childs', 0), // Default to 0 if not provided
         ]);
 
         $contract->groom()->create($validated['groom']);
