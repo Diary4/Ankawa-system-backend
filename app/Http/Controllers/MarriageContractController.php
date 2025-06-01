@@ -26,7 +26,7 @@ class MarriageContractController extends Controller
          $validated = $request->validate([
             'type' => 'required|in:muslim,christian,daraki',
             'judge_name' => 'required|string',
-            'phone' => 'nullable|string',
+            'phone' => 'required|string',
             'marriage_date' => 'required|date',
             'witness1_name' => 'nullable|string',
             'witness2_name' => 'nullable|string',
@@ -57,7 +57,7 @@ class MarriageContractController extends Controller
             'user_id' => 1,
             'type' => $validated['type'],
             'judge_name' => $validated['judge_name'],
-            'phone' => $validated['phone'] -> $request->input('phone', 'Default Phone Number'), // Default phone number if not provided
+            'phone' => $validated['phone'], // Default phone number if not provided
             'marriage_date' => $validated['marriage_date'],
             'witness1_name' => $request->input('witness1_name', 'Default Witness 1'), 
             'witness2_name' => $request->input('witness2_name', 'Default Witness 2'), 
