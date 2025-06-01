@@ -76,4 +76,37 @@ class MarriageContractController extends Controller
         return response()->json(['message' => 'Marriage contract created successfully']);
     }
 
+    public function update(Request $request, $id)
+    {
+        $contract = MarriageContract::findOrFail($id);
+
+        $validated = $request->validate([
+            'type' => 'required|in:muslim,christian,daraki',
+            'judge_name' => 'required|string',
+            'phone' => 'required|string',
+            'marriage_date' => 'required|date',
+            'witness1_name' => 'nullable|string',
+            'witness2_name' => 'nullable|string',
+            'marray_peshaki' => 'nullable|string',
+            'marray_pashaki' => 'nullable|string',
+            'peshaki_wargirawa' => 'nullable|boolean',
+            'pashaki_wargirawa' => 'nullable|boolean',
+            'kanisa' => 'nullable|string',
+            'tayfa' => 'nullable|string',
+            'number_of_childs' => 'nullable|integer',  
+        ]);
+
+        $contract->update($validated);
+
+        if ($request->has('groom')) {
+            $contract->groom()->update($request->input('groom'));
+        }
+
+        if ($request->has('bride')) {
+            $contract->bride()->update($request->input('bride'));
+        }
+
+        return response()->json(['message' => 'Marriage contract updated successfully']);
+    }
+
 }
