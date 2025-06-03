@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class DeathContractModel extends Model
+class DeathDocument extends Model
 {
-    protected $fillable = [
+      protected $fillable = [
         'gender',
         'death_location',
         'date_of_death',

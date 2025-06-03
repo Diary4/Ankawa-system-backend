@@ -3,21 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\DeathContractModel;
+use App\Models\DeathDocument;
 
 class DeathDocumentController extends Controller
 {
     
     public function index()
     {
-        $documents = DeathContractModel::with(['user'])->get();
+        $documents = DeathDocument::with(['user'])->get();
         return response()->json($documents);
     }
 
     public function show($id)
     {
         // Logic to display a specific death document
-        $document = DeathContractModel::with(['user'])->findOrFail($id);
+        $document = DeathDocument::with(['user'])->findOrFail($id);
         return response()->json($document);
     }
 
@@ -38,7 +38,7 @@ class DeathDocumentController extends Controller
             'witness2_name' => 'nullable|string',
         ]);
 
-        $document = DeathContractModel::create([
+        $document = DeathDocument::create([
             'user_id' => 1,
             'death_location' => $validated['death_location'],
             'date_of_death' => $validated['date_of_death'],
