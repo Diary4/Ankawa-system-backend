@@ -40,6 +40,7 @@ class DeathDocumentController extends Controller
 
         $document = DeathDocument::create([
             'user_id' => 1,
+            'gender' => $validated['gender'],
             'death_location' => $validated['death_location'],
             'date_of_death' => $validated['date_of_death'],
             'religion' => $validated['religion'],
