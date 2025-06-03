@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('death_location')->nullable();
             $table->string('date_of_death')->nullable();
             $table->string('religion')->nullable(); 
-            $table->date('nationality')->nullable();
+            $table->string('nationality')->nullable();
             $table->string('demander')->nullable();
             $table->string('location')->nullable();
             $table->string('related_to_death')->nullable(); // Type of death document (e.g., natural, accidental)
