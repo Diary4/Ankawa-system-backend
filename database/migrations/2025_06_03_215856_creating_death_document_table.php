@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->string('gender')->nullable();
             $table->string('death_location')->nullable();
-            $table->string('date+of_death')->nullable();
+            $table->string('date_of_death')->nullable();
             $table->string('religion')->nullable(); 
             $table->date('nationality')->nullable();
             $table->string('demander')->nullable();

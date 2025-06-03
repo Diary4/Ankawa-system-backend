@@ -40,7 +40,18 @@ class DeathDocumentController extends Controller
 
         $document = DeathContractModel::create([
             'user_id' => 1,
-        ] + $validated);
+            'death_location' => $validated['death_location'],
+            'date_of_death' => $validated['date_of_death'],
+            'religion' => $validated['religion'],
+            'nationality' => $validated['nationality'],
+            'demander' => $validated['demander'],
+            'location' => $validated['location'],
+            'related_to_death' => $validated['related_to_death'],
+            'judge' => $validated['judge'],
+            'phone' => $validated['phone'] ?? 'Default Phone Number',
+            'witness1_name' => $validated['witness1_name'],
+            'witness2_name' => $validated['witness2_name'],
+        ]);
         return response()->json($document, 201);
     }
 }
