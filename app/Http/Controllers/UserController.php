@@ -10,17 +10,7 @@ use Illuminate\Validation\ValidationException;
 class UserController extends Controller
 {
     
-    public function index($re)
-    {
-        $users = User::findOrFail();
-        return response()->json($users);
-    }
-    public function show($id)
-    {
-        $user = User::findOrFail($id);
-        return response()->json($user);
-    }
-
+    
     public function login(Request $request)
     {
          $request->validate([
