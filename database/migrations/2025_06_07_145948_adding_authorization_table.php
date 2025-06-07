@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('authorizations', function (Blueprint $table) {
             $table->id();
-            $table->string('Demander');
+            $table->string('demander');
             $table->string('location');
             $table->text('patient_namea')->nullable();
             $table->string('disease_type');
-            $table->string('jusdge');
+            $table->string('judge');
             $table->string('phone')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
