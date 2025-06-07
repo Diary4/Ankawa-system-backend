@@ -22,3 +22,8 @@ Route::put('/marriage-contracts/{id}', [MarriageContractController::class, 'upda
 Route::get('death-documents', [DeathDocumentController::class, 'index']);
 Route::get('death-documents/{id}', [DeathDocumentController::class, 'show']);
 Route::post('death-documents', [DeathDocumentController::class, 'store']);
+
+
+Route::get('/authorizations', [App\Http\Controllers\AuthorizationController::class, 'index']);
+Route::get('/authorizations/{id}', [App\Http\Controllers\AuthorizationController::class, 'show']);
+Route::post('/authorizations', [App\Http\Controllers\AuthorizationController::class, 'store']);
