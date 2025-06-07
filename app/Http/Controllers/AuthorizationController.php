@@ -27,7 +27,7 @@ class AuthorizationController extends Controller
         $validated = $request->validate([
             'demander' => 'required|string',
             'location' => 'required|string',
-            'patient_namea' => 'required|string',
+            'patient_name' => 'required|string',
             'disease_type' => 'required|string',
             'judge' => 'nullable|string',
             'phone' => 'nullable|string',
@@ -37,7 +37,7 @@ class AuthorizationController extends Controller
             'user_id' => 1, // Assuming user_id is set to 1 for demonstration
             'demander' => $validated['demander'],
             'location' => $validated['location'],
-            'patient_namea' => $validated['patient_namea'],
+            'patient_name' => $validated['patient_namea'],
             'disease_type' => $validated['disease_type'],
             'judge' => $validated['judge'],
             'phone' => $validated['phone'] ?? 'Default Phone Number',

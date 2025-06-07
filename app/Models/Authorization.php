@@ -10,7 +10,7 @@ class Authorization extends Model
         'user_id',
         'demander',
         'location',
-        'patient_namea',
+        'patient_name',
         'disease_type', 
         'judge',
         'phone',
