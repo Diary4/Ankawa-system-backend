@@ -45,4 +45,29 @@ class AuthorizationController extends Controller
 
         return response()->json($authorization, 201);
     }
+
+    public function update(Request $request, $id)
+    {
+        $authorization = Authorization::findOrFail($id);
+
+        $validated = $request->validate([
+            'demander' => 'required|string',
+            'location' => 'required|string',
+            'patient_name' => 'required|string',
+            'disease_type' => 'required|string',
+            'judge' => 'nullable|string',
+            'phone' => 'nullable|string',
+        ]);
+
+        $authorization->update([
+            'demander' => $validated['demander'],
+            'location' => $validated['location'],
+            'patient_name' => $validated['patient_name'],
+            'disease_type' => $validated['disease_type'],
+            'judge' => $validated['judge'],
+            'phone' => $validated['phone'] ?? 'Default Phone Number',
+        ]);
+
+        return response()->json($authorization);
+    }
 }
