@@ -37,7 +37,7 @@ class AuthorizationController extends Controller
             'user_id' => 1, // Assuming user_id is set to 1 for demonstration
             'demander' => $validated['demander'],
             'location' => $validated['location'],
-            'patient_name' => $validated['patient_namea'],
+            'patient_name' => $validated['patient_name'],
             'disease_type' => $validated['disease_type'],
             'judge' => $validated['judge'],
             'phone' => $validated['phone'] ?? 'Default Phone Number',
