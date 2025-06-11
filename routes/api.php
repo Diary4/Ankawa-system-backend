@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MarriageContractController;
 use App\Http\Controllers\DeathDocumentController;
+use App\Http\Controllers\DistrbutionDocumentController;
 
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
@@ -29,3 +30,8 @@ Route::get('/authorizations', [App\Http\Controllers\AuthorizationController::cla
 Route::get('/authorizations/{id}', [App\Http\Controllers\AuthorizationController::class, 'show']);
 Route::post('/authorizations', [App\Http\Controllers\AuthorizationController::class, 'store']);
 Route::put('/authorizations/{id}', [App\Http\Controllers\AuthorizationController::class, 'update']);
+
+Route::get('/distrbution-document', [App\Http\Controllers\DistrbutionDocumentController::class, 'index']);
+Route::get('/distrbution-document/{id}', [App\Http\Controllers\DistrbutionDocumentController::class, 'show']);
+Route::post('/distrbution-document', [App\Http\Controllers\DistrbutionDocumentController::class, 'store']);
+Route::put('/distrbution-document/{id}', [App\Http\Controllers\DistrbutionDocumentController::class, 'update']);
