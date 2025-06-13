@@ -34,7 +34,7 @@ class AuthorizationController extends Controller
         ]);
 
         $authorization = Authorization::create([
-            'user_id' => 1, // Assuming user_id is set to 1 for demonstration
+            'user_id' => $request->user()->id, // Assuming user_id is set to 1 for demonstration
             'demander' => $validated['demander'],
             'location' => $validated['location'],
             'patient_name' => $validated['patient_name'],

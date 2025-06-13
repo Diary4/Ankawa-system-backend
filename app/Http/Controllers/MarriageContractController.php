@@ -54,7 +54,7 @@ class MarriageContractController extends Controller
         ]);
 
         $contract = MarriageContract::create([
-            'user_id' => 1,
+            'user_id' =>  $request->user()->id, // Assuming the user is authenticated
             'type' => $validated['type'],
             'judge_name' => $validated['judge_name'],
             'phone' => $validated['phone'], // Default phone number if not provided

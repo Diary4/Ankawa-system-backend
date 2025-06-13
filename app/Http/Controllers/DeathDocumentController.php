@@ -39,7 +39,7 @@ class DeathDocumentController extends Controller
         ]);
 
         $document = DeathDocument::create([
-            'user_id' => 1,
+            'user_id' => $request->user()->id, // Assuming the user is authenticated
             'gender' => $validated['gender'],
             'death_location' => $validated['death_location'],
             'date_of_death' => $validated['date_of_death'],
