@@ -49,10 +49,11 @@ class AuthController extends Controller
             ], 404);
         }
 
-        if (!Auth::attempt($validated)) {
-            throw ValidationException::withMessages([
-                'email' => ['The provided credentials are incorrect.'],
-            ]);
+        if (!Auth::attempt($request->only('email', 'password'))) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'invalid_credentials'
+            ], 401);
         }
 
         $user = User::where('email', $validated['email'])->firstOrFail();
