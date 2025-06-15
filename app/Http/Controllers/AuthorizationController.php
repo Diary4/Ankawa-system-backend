@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Authorization;
+use Illuminate\Support\Facades\Auth;
 
 class AuthorizationController extends Controller
 {
@@ -11,15 +12,21 @@ class AuthorizationController extends Controller
     public function index()
     {
         // Logic to display all authorizations
-        $authorizations = Authorization::with(['user'])->get();
-        return response()->json($authorizations);
+        $data = Authorization::where('user_id', Auth::id())->get();
+        return response()->json($data);
     }
 
     public function show($id)
     {
         // Logic to display a specific authorization
-        $authorization = Authorization::with(['user'])->findOrFail($id);
-        return response()->json($authorization);
+        $item = Authorization::findOrFail($id);
+
+        // Check if the logged-in user owns the item
+        if ($item->user_id !== Auth::id()) {
+            abort(403, 'Unauthorized');
+        }
+
+        return response()->json($item);
     }
 
     public function store(Request $request)
