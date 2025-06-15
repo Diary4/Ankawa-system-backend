@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\DeathDocument;
+use Illuminate\Support\Facades\Auth;
 
 class DeathDocumentController extends Controller
 {
     
     public function index()
     {
-        $documents = DeathDocument::with(['user'])->get();
-        return response()->json($documents);
+        $data = DeathDocument::where('user_id', Auth::id())->get();
+        return response()->json($data);
     }
 
     public function show($id)

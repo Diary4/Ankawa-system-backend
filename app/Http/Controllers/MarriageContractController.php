@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\MarriageContract;
+use Illuminate\Support\Facades\Auth;
 
 class MarriageContractController extends Controller
 {
@@ -11,8 +12,8 @@ class MarriageContractController extends Controller
     public function index()
     {
         // Logic to display all marriage contracts
-        $contracts = MarriageContract::with(['groom', 'bride'])->get();
-        return response()->json($contracts);
+        $data = MarriageContract::where('user_id', Auth::id())->get();
+        return response()->json($data);
     }
     public function show($id)
     {

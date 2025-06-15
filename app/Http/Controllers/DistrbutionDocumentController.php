@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\DistrbutionDocument;
+use Illuminate\Support\Facades\Auth;
 
 class DistrbutionDocumentController extends Controller
 {
     public function index()
     {
         // Logic to display all distribution documents
-        $documents = DistrbutionDocument::with(['user'])->get();
-        return response()->json($documents);
+        $data = DistrbutionDocument::where('user_id', Auth::id())->get();
+        return response()->json($data);
     }
 
     public function show($id)
